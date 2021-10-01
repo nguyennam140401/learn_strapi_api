@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "carousels",
   "info": {
-    "name": "Post",
-    "description": ""
+    "name": "Carousel"
   },
   "options": {
     "increments": true,
@@ -15,10 +14,7 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "richtext"
-    },
-    "image": {
+    "img": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
@@ -30,13 +26,8 @@
       "required": false,
       "pluginOptions": {}
     },
-    "seo": {
-      "type": "uid",
-      "required": true
-    },
-    "category": {
-      "via": "posts",
-      "model": "categories"
+    "description": {
+      "type": "string"
     }
   }
 }
