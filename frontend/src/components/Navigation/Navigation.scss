@@ -6,9 +6,12 @@
     padding: 0 var(--pd);
     align-items: center;
     .logo {
-        font-size: 2rem;
+        a {
+            text-decoration: none;
+            font-size: 2rem;
+            color: #fff;
+        }
         flex-basis: 100%;
-        color: #fff;
     }
     .search {
         position: relative;
@@ -26,10 +29,17 @@
             width: 100%;
             border-radius: var(--br);
             z-index: 1000;
+            p {
+                padding: 20px 0 0 20px;
+            }
             ul {
                 list-style: none;
-                padding-top: 20px;
+                padding: 0;
                 li {
+                    padding: 0 1rem;
+                    &:hover {
+                        background-color: var(--primary-color);
+                    }
                     a {
                         display: flex;
                         text-decoration: none;
@@ -48,6 +58,7 @@
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 display: -webkit-box;
+                                padding: unset;
                             }
                         }
                     }

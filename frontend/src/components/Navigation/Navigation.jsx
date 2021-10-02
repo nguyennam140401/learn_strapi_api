@@ -12,7 +12,7 @@ const Navigation = () => {
     }, [])
     const search = async () => {
         const res = await api.searchPost(textSearchState)
-        console.log(res)
+
         setSearchResult(res)
     }
     useEffect(async () => {
@@ -25,7 +25,9 @@ const Navigation = () => {
     return (
         <Fragment>
             <div className="navigation">
-                <div className="logo">VanNam</div>
+                <div className="logo">
+                    <Link to="/">VanNam</Link>
+                </div>
                 <div className="search">
                     <input
                         type="text"
@@ -34,19 +36,24 @@ const Navigation = () => {
                         onChange={(event) => {
                             setTextSearchState(event.target.value)
                         }}
+                        // spellCheck="false"
                         onBlur={() => {
-                            setTextSearchState('')
-                            setSearchResult([])
+                            setTimeout(() => {
+                                setTextSearchState('')
+                                setSearchResult([])
+                            }, 140)
                         }}
                     />
                     <div className="search_result">
-                        {searchResult.length > 0 ? (
+                        {searchResult.length > 0 && (
                             <ul>
                                 {searchResult.map((item, idx) => {
                                     return (
-                                        <Fragment>
+                                        <Fragment key={idx}>
                                             <li>
-                                                <Link>
+                                                <Link
+                                                    to={`/blogDetail/${item.id}`}
+                                                >
                                                     <div className="result_img">
                                                         <img
                                                             src={`http://localhost:1337${item.image[0].url}`}
@@ -65,8 +72,6 @@ const Navigation = () => {
                                     )
                                 })}
                             </ul>
-                        ) : (
-                            'Không có kết quả'
                         )}
                     </div>
                 </div>

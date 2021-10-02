@@ -13,7 +13,7 @@ const BlogDetail = () => {
         } catch (error) {
             console.log(error)
         }
-    }, [])
+    }, [id])
     return (
         <Fragment>
             <div className="post_detail">
