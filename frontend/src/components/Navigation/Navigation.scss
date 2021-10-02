@@ -7,11 +7,59 @@
     align-items: center;
     .logo {
         font-size: 2rem;
+        flex-basis: 100%;
         color: #fff;
     }
+    .search {
+        position: relative;
+        input {
+            width: 400px;
+            padding: 0.25rem 0.7rem;
+            border-radius: var(--br);
+
+            border: none;
+            outline: none;
+        }
+        .search_result {
+            position: absolute;
+            background-color: var(--light-color);
+            width: 100%;
+            border-radius: var(--br);
+            z-index: 1000;
+            ul {
+                list-style: none;
+                padding-top: 20px;
+                li {
+                    a {
+                        display: flex;
+                        text-decoration: none;
+                        color: #000;
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            object-fit: contain;
+                        }
+                        .result_contain {
+                            padding: 1rem;
+                            h3 {
+                            }
+                            p {
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                display: -webkit-box;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     .nav_ul {
+        flex-basis: 100%;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         ul {
             list-style: none;
             display: flex;

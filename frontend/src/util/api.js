@@ -17,3 +17,7 @@ export const getOnePost = async (id) => {
     const res = await axios.get(`${uri}/posts/${id}`)
     return res.data
 }
+export const searchPost = async (text) => {
+    const res = await axios.get(`${uri}/posts?title_contains=${text}`)
+    return res.data
+}
