@@ -14,10 +14,27 @@ const Footer = () => {
     }, [])
     return (
         <Fragment>
+            <div className="contact">
+                {inforState && (
+                    <Fragment>
+                        <div className="phone">
+                            <p>
+                                <strong>Điện thoại: </strong>
+                                {inforState.phone}
+                            </p>
+                        </div>
+                        <div className="gmail">
+                            <form>
+                                <input type="text" />
+                                <button>Gửi đi</button>
+                            </form>
+                        </div>
+                    </Fragment>
+                )}
+            </div>
             <div className="footer">
                 {inforState && (
                     <Fragment>
-                        {' '}
                         <div className="logo">
                             <Link to="/">VanNam</Link>
                         </div>
