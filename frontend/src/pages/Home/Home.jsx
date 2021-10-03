@@ -5,6 +5,9 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import * as api from '../../util/api'
 import CategoryBlog from '../../components/CategoryBlog/CategoryBlog'
+import Featured from '../../components/Featured/Featured'
+import Footer from '../../components/Footer/Footer'
+
 const Home = () => {
     const [carouselState, setCarouselState] = useState([])
     const [categoryState, setCategoryState] = useState([])
@@ -12,7 +15,6 @@ const Home = () => {
         try {
             const res = await api.getCarousel()
             const res2 = await api.getCategory()
-            console.log(res2)
             setCarouselState(res)
             setCategoryState(res2)
         } catch (error) {
@@ -40,9 +42,11 @@ const Home = () => {
                     )
                 })}
             </Carousel>
+            <Featured></Featured>
             {categoryState.map((item, idx) => {
                 return <CategoryBlog key={idx} data={item}></CategoryBlog>
             })}
+            <Footer></Footer>
         </Fragment>
     )
 }

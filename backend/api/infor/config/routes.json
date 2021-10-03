@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/infor",
+      "handler": "infor.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/infor",
+      "handler": "infor.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/infor",
+      "handler": "infor.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

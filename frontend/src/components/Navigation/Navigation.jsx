@@ -4,14 +4,77 @@ import { Link } from 'react-router-dom'
 import * as api from '../../util/api'
 const Navigation = () => {
     const [categoryState, setCategoryState] = useState([])
+    const [textSearchState, setTextSearchState] = useState('')
+    const [searchResult, setSearchResult] = useState([])
     useEffect(async () => {
         const res = await api.getCategory()
         setCategoryState(res)
     }, [])
+    const search = async () => {
+        const res = await api.searchPost(textSearchState)
+
+        setSearchResult(res)
+    }
+    useEffect(async () => {
+        if (textSearchState !== '') {
+            await search()
+        } else {
+            setSearchResult([])
+        }
+    }, [textSearchState])
     return (
         <Fragment>
             <div className="navigation">
-                <div className="logo">VanNam</div>
+                <div className="logo">
+                    <Link to="/">VanNam</Link>
+                </div>
+                <div className="search">
+                    <input
+                        type="text"
+                        placeholder="Search something ....."
+                        value={textSearchState}
+                        onChange={(event) => {
+                            setTextSearchState(event.target.value)
+                        }}
+                        // spellCheck="false"
+                        onBlur={() => {
+                            setTimeout(() => {
+                                setTextSearchState('')
+                                setSearchResult([])
+                            }, 140)
+                        }}
+                    />
+                    <div className="search_result">
+                        {searchResult.length > 0 && (
+                            <ul>
+                                {searchResult.map((item, idx) => {
+                                    return (
+                                        <Fragment key={idx}>
+                                            <li>
+                                                <Link
+                                                    to={`/blogDetail/${item.id}`}
+                                                >
+                                                    <div className="result_img">
+                                                        <img
+                                                            src={`http://localhost:1337${item.image[0].url}`}
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="result_contain">
+                                                        <h5>{item.title}</h5>
+                                                        <p>
+                                                            {item.description}
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </li>
+                                        </Fragment>
+                                    )
+                                })}
+                            </ul>
+                        )}
+                    </div>
+                </div>
                 <div className="nav_ul">
                     <ul>
                         <li>
