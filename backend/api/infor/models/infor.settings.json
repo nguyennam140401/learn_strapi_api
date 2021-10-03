@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "infors",
+  "info": {
+    "name": "Infor",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "linkFacebook": {
+      "type": "string"
+    },
+    "linkGmail": {
+      "type": "string"
+    },
+    "linkYoutube": {
+      "type": "string"
+    }
+  }
+}

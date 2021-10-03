@@ -21,3 +21,11 @@ export const searchPost = async (text) => {
     const res = await axios.get(`${uri}/posts?title_contains=${text}`)
     return res.data
 }
+export const getFeatured = async () => {
+    const res = await axios.get(`${uri}/featureds`)
+    return res.data
+}
+export const getInfor = async () => {
+    const res = await axios.get(`${uri}/infor`)
+    return res.data
+}
