@@ -1,18 +1,19 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Navigation from '../../components/Navigation/Navigation'
+import { getOneCategory } from '../../util/api'
+import { useParams } from 'react-router'
 import ListBlog from '../../components/ListBlog/ListBlog'
-import * as api from '../../util/api'
-const BlogPage = () => {
+const CategoryBlogPage = () => {
+    const { id } = useParams()
     const [postState, setPostState] = useState([])
     useEffect(async () => {
         try {
-            const res = await api.getPost()
-            console.log(res)
-            setPostState(res)
+            const res = await getOneCategory(id)
+            setPostState(res.posts)
         } catch (error) {
             console.log(error)
         }
-    }, [])
+    }, [id])
     return (
         <Fragment>
             <Navigation></Navigation>
@@ -21,4 +22,4 @@ const BlogPage = () => {
     )
 }
 
-export default BlogPage
+export default CategoryBlogPage

@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import BlogPage from './pages/BlogPage/BlogPage'
 import About from './pages/About/About'
-import BlogDetail from './pages/BlogDetail/BlogDetail'
+import BlogDetailPage from './pages/BlogDetailPage/BlogDetailPage'
+import CategoryBlogPage from './pages/CategoryBlogPage/CategoryBlogPage'
 function App() {
     return (
         <div className="App">
@@ -12,8 +13,13 @@ function App() {
                 <Switch>
                     <Route exact path="/blog" component={BlogPage}></Route>
                     <Route
+                        exact
+                        path="/blog/:id"
+                        component={CategoryBlogPage}
+                    ></Route>
+                    <Route
                         path="/blogDetail/:id"
-                        component={BlogDetail}
+                        component={BlogDetailPage}
                     ></Route>
                 </Switch>
                 <Switch>
