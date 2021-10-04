@@ -22,8 +22,14 @@ const BlogDetailPage = () => {
             <div className="post_detail">
                 <Navigation></Navigation>
                 <div className="detail">
-                    <BlogDetail data={postState}></BlogDetail>
-                    <SideBar id={postState.category.id}></SideBar>
+                    <div className="detail_post">
+                        <BlogDetail data={postState}></BlogDetail>
+                    </div>
+                    <div className="detail_post_same">
+                        {postState && (
+                            <SideBar id={postState.category.id}></SideBar>
+                        )}
+                    </div>
                 </div>
             </div>
         </Fragment>
