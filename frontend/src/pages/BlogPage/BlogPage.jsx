@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import Navigation from '../../components/Navigation/Navigation'
+
 import ListBlog from '../../components/ListBlog/ListBlog'
 import * as api from '../../util/api'
 const BlogPage = () => {
@@ -15,7 +15,6 @@ const BlogPage = () => {
     }, [])
     return (
         <Fragment>
-            <Navigation></Navigation>
             <ListBlog data={postState}></ListBlog>
         </Fragment>
     )

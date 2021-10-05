@@ -1,18 +1,19 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { getOneCategory } from '../../util/api'
+import { getPostOfCategory } from '../../util/api'
 import './Sidebar.scss'
 import { Link } from 'react-router-dom'
 const SideBar = ({ id }) => {
     const [postState, setPostState] = useState([])
+    const [textSearch, setTextSearch] = useState('')
     useEffect(async () => {
         try {
-            const res = await getOneCategory(id)
-            setPostState(res.posts)
-            console.log(id, res.posts)
+            const res = await getPostOfCategory(id, textSearch)
+            console.log(id, res)
+            setPostState(res)
         } catch (error) {
             console.log(error)
         }
-    }, [id])
+    }, [id, textSearch])
     return (
         <Fragment>
             <div className="sidebar">
@@ -21,6 +22,10 @@ const SideBar = ({ id }) => {
                     <input
                         type="text"
                         placeholder="Tìm bài viết cùng thể loại"
+                        value={textSearch}
+                        onChange={(event) => {
+                            setTextSearch(event.target.value)
+                        }}
                     />
                     <button>Tìm kiếm</button>
                 </form>

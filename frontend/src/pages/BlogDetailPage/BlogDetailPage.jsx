@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import * as api from '../../util/api'
-import Navigation from '../../components/Navigation/Navigation'
+
 import './BlogDetailPage.scss'
 import BlogDetail from '../../components/BlogDetail/BlogDetail'
 import SideBar from '../../components/SideBar/SideBar'
@@ -20,7 +20,6 @@ const BlogDetailPage = () => {
     return (
         <Fragment>
             <div className="post_detail">
-                <Navigation></Navigation>
                 <div className="detail">
                     <div className="detail_post">
                         <BlogDetail data={postState}></BlogDetail>

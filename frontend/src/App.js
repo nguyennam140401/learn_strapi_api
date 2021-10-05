@@ -6,10 +6,13 @@ import BlogPage from './pages/BlogPage/BlogPage'
 import About from './pages/About/About'
 import BlogDetailPage from './pages/BlogDetailPage/BlogDetailPage'
 import CategoryBlogPage from './pages/CategoryBlogPage/CategoryBlogPage'
+import Navigation from './components/Navigation/Navigation'
+import Footer from './components/Footer/Footer'
 function App() {
     return (
         <div className="App">
             <Router>
+                <Navigation />
                 <Switch>
                     <Route exact path="/blog" component={BlogPage}></Route>
                     <Route
@@ -27,6 +30,7 @@ function App() {
 
                     <Route path="/about" component={About}></Route>
                 </Switch>
+                <Footer />
             </Router>
         </div>
     )
