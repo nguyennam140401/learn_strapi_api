@@ -34,7 +34,7 @@ const SideBar = ({ id }) => {
                         ? postState.slice(0, 4).map((item, idx) => {
                               return (
                                   <li>
-                                      <Link to={`/blogDetail/${item.id}`}>
+                                      <Link to={`/blogDetail/${item.seo}`}>
                                           <Fragment>
                                               <div className="img">
                                                   <img
