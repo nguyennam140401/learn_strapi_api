@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { getOneCategory } from '../../util/api'
 import './Sidebar.scss'
+import { Link } from 'react-router-dom'
 const SideBar = ({ id }) => {
     const [postState, setPostState] = useState([])
     useEffect(async () => {
@@ -25,18 +26,22 @@ const SideBar = ({ id }) => {
                 </form>
                 <ul>
                     {postState.length > 0
-                        ? postState.map((item, idx) => {
+                        ? postState.slice(0, 4).map((item, idx) => {
                               return (
                                   <li>
-                                      <div className="img">
-                                          <img
-                                              src={`http://localhost:1337${item.image[0].url}`}
-                                              alt=""
-                                          />
-                                      </div>
-                                      <div className="detail">
-                                          <p>{item.title}</p>
-                                      </div>
+                                      <Link to={`/blogDetail/${item.id}`}>
+                                          <Fragment>
+                                              <div className="img">
+                                                  <img
+                                                      src={`http://localhost:1337${item.image[0].url}`}
+                                                      alt=""
+                                                  />
+                                              </div>
+                                              <div className="sidebar_post_detail">
+                                                  <p>{item.title}</p>
+                                              </div>
+                                          </Fragment>
+                                      </Link>
                                   </li>
                               )
                           })
