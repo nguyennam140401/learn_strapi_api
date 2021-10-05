@@ -4,16 +4,16 @@ import { getOneCategory } from '../../util/api'
 import { useParams } from 'react-router'
 import ListBlog from '../../components/ListBlog/ListBlog'
 const CategoryBlogPage = () => {
-    const { id } = useParams()
+    const { seo } = useParams()
     const [postState, setPostState] = useState([])
     useEffect(async () => {
         try {
-            const res = await getOneCategory(id)
+            const res = await getOneCategory(seo)
             setPostState(res.posts)
         } catch (error) {
             console.log(error)
         }
-    }, [id])
+    }, [seo])
     return (
         <Fragment>
             <ListBlog data={postState}></ListBlog>

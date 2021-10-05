@@ -6,17 +6,17 @@ import './BlogDetailPage.scss'
 import BlogDetail from '../../components/BlogDetail/BlogDetail'
 import SideBar from '../../components/SideBar/SideBar'
 const BlogDetailPage = () => {
-    const { id } = useParams()
+    const { seo } = useParams()
     const [postState, setPostState] = useState(null)
     useEffect(async () => {
         try {
-            const res = await api.getOnePost(id)
+            const res = await api.getOnePost(seo)
             setPostState(res)
             console.log(res)
         } catch (error) {
             console.log(error)
         }
-    }, [id])
+    }, [seo])
     return (
         <Fragment>
             <div className="post_detail">

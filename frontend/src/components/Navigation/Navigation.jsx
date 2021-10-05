@@ -52,7 +52,7 @@ const Navigation = () => {
                                         <Fragment key={idx}>
                                             <li>
                                                 <Link
-                                                    to={`/blogDetail/${item.id}`}
+                                                    to={`/blogDetail/${item.seo}`}
                                                 >
                                                     <div className="result_img">
                                                         <img
@@ -89,7 +89,7 @@ const Navigation = () => {
                                             <Fragment key={idx}>
                                                 <li>
                                                     <Link
-                                                        to={`/blog/${item.id}`}
+                                                        to={`/blog/${item.seo}`}
                                                     >
                                                         {item.name}
                                                     </Link>

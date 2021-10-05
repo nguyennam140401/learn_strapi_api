@@ -17,11 +17,11 @@ function App() {
                     <Route exact path="/blog" component={BlogPage}></Route>
                     <Route
                         exact
-                        path="/blog/:id"
+                        path="/blog/:seo"
                         component={CategoryBlogPage}
                     ></Route>
                     <Route
-                        path="/blogDetail/:id"
+                        path="/blogDetail/:seo"
                         component={BlogDetailPage}
                     ></Route>
                 </Switch>

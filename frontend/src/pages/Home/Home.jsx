@@ -45,7 +45,6 @@ const Home = () => {
             {categoryState.map((item, idx) => {
                 return <CategoryBlog key={idx} data={item}></CategoryBlog>
             })}
-            <Footer></Footer>
         </Fragment>
     )
 }
