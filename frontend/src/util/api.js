@@ -4,6 +4,10 @@ export const getCategory = async () => {
     const res = await axios.get(`${uri}/categories`)
     return res.data
 }
+export const getOneCategory = async (id) => {
+    const res = await axios.get(`${uri}/categories/${id}`)
+    return res.data
+}
 export const getCarousel = async () => {
     const res = await axios.get(`${uri}/carousels`)
     return res.data
@@ -11,6 +15,12 @@ export const getCarousel = async () => {
 
 export const getPost = async () => {
     const res = await axios.get(`${uri}/posts`)
+    return res.data
+}
+export const getPostOfCategory = async (id, textFind = '') => {
+    const res = await axios.get(
+        `${uri}/posts?category=${id}&title_contains=${textFind}`
+    )
     return res.data
 }
 export const getOnePost = async (id) => {

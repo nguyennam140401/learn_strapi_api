@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Navigation from '../../components/Navigation/Navigation'
+
 import Carousel from 'react-bootstrap/Carousel'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -23,7 +23,6 @@ const Home = () => {
     }, [])
     return (
         <Fragment>
-            <Navigation></Navigation>
             <Carousel>
                 {carouselState.map((item, idx) => {
                     return (
