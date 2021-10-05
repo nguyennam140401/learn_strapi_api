@@ -14,7 +14,7 @@ const BlogItem = ({ data }) => {
                 <div className="blog_infor">
                     <h4>{data.title}</h4>
                     <p>{data.description}</p>
-                    <Link to={`/blogDetail/${data.id}`}>Đọc thêm</Link>
+                    <Link to={`/blogDetail/${data.seo}`}>Đọc thêm</Link>
                 </div>
             </div>
         </Fragment>
